@@ -3,6 +3,11 @@ body {
   margin: 0;
   background: linear-gradient(#9db399, #ffffff);
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 h1 {
   color: blue;
   text-align: center;
@@ -44,7 +49,7 @@ p {
   transition: 0.2s linear; 
 }
 
-/* Background change when mouse is on */
+/* Background topmenu change when mouse is on */
 #topmenu a:hover {
   transform: translateX(0px);
   background-color: #ddd;
@@ -109,6 +114,28 @@ a:active {
   color: yellow;
   background-color: transparent;
   text-decoration: underline;
+}
+
+/*Splatt logo*/
+
+#topmenu .menu-left a:first-child {
+  padding: 0;
+}
+
+#topmenu .menu-left a:first-child img {
+  display: block;
+  width: 17em;
+  height: auto;
+}
+
+/* Hover */
+#topmenu .menu-left a:first-child:hover img {
+  content: url("../img/splattlogohover.png");
+}
+
+/* While clicking */
+#topmenu .menu-left a:first-child:active img {
+  content: url("../img/splattlogoclicked.png");
 }
 
 
