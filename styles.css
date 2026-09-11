@@ -19,18 +19,32 @@ p {
 }
 
 #topmenu {
-  display: flex;
-  align-items: center;
-  background-color: #333;
+  /*default menu*/
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*background-color: #333;*/
+  background-image: url("../img/topmenu_ink.png");
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  padding-left: 30px;
+  padding-right: 30px;
+  box-sizing: border-box;
   position: fixed;
   top: 0;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
   transition: top 0.3s;
 }
 
 .menu-left,
 .menu-right {
   display: flex;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .menu-right {
@@ -45,7 +59,7 @@ p {
   text-align: center;
   padding: 28px 32px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 15px;
   transition: 0.2s linear; 
 }
 
@@ -56,6 +70,7 @@ p {
   color: black;
 }
 
+/* When clicked */
 #topmenu a:active {
   transition: 0.06s linear;
   Background-color: green;
@@ -138,5 +153,81 @@ a:active {
   content: url("../img/splattlogoclicked.png");
 }
 
+/*splattube logo topmenu*/
+
+#topmenu a:has(#splattube) {
+  padding: 0;
+}
+
+#splattube {
+  display: block;
+  height: 100px;
+  width: auto;
+}
+
+#topmenu a:has(#splattube):hover img {
+  content: url("../img/splattubehover.png");
+}
+
+#topmenu a:has(#splattube):active img {
+  content: url("../img/splattubeclicked.png");
+  transform: scale(0.8);
+}
 
 
+/*splattcord logo topmenu*/
+
+#topmenu a:has(#splattcord) {
+  padding: 0;
+}
+
+#splattcord {
+  display: block;
+  height: 100px;
+  width: auto;
+}
+
+#topmenu a:has(#splattcord):hover img {
+  content: url("../img/splattcordhover.png");
+}
+
+#topmenu a:has(#splattcord):active img {
+  content: url("../img/splattcordclicked.png");
+  transform: scale(0.8);
+}
+
+/*splattbird logo topmenu*/
+
+#topmenu a:has(#splattbird) {
+  padding: 0;
+}
+
+#splattbird {
+  display: block;
+  height: 100px;
+  width: auto;
+}
+
+#topmenu a:has(#splattbird):hover img {
+  content: url("../img/placeholder.png");
+}
+
+#topmenu a:has(#splattbird):active img {
+  content: url("../img/placeholder.png");
+  transform: scale(0.8);
+}
+
+#splattlogo,
+#splattube,
+#splattcord {
+  display: block;
+  height: 75px;
+  width: auto;
+  transition: transform 0.2s;
+}
+
+#splattlogo:hover,
+#splattube:hover,
+#splattcord:hover {
+  transform: translateY(-5px);
+}
