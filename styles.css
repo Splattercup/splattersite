@@ -27,11 +27,16 @@ p {
   background-size: cover;
   background-position: center;
   height: 250px;
-  padding-left: 30px;
-  padding-right: 30px;
+  
+/*topmenu will have border for logo and info*/
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-top: 15px;
   box-sizing: border-box;
+  
+/*start with menu hiding in top*/
   position: fixed;
-  top: 0;
+  top: -250;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -139,7 +144,7 @@ a:active {
 
 #topmenu .menu-left a:first-child img {
   display: block;
-  width: 17em;
+  width: 20em;
   height: auto;
 }
 
