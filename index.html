@@ -39,6 +39,13 @@ font-family: pencakes;
 
 </style>
 
+<link rel="preload" as="image" href="./img/splattubehover.png">
+<link rel="preload" as="image" href="./img/splattubeclicked.png">
+<link rel="preload" as="image" href="./img/splattcordhover.png">
+<link rel="preload" as="image" href="./img/splattcordclicked.png">
+<link rel="preload" as="image" href="./img/splattlogohover.png">
+<link rel="preload" as="image" href="./img/splattlogoclicked.png">
+
 </head>
 
 <body style="text-align:center">
@@ -46,38 +53,38 @@ font-family: pencakes;
   <div class="menu-left">
     <a href="#">
     <img id="splatthome" src="./img/splattlogo.png" alt="Splattersite"></a>
-    <a href="bio.html">About Me</a>
-    <a href="art-portfolio.html">Projects</a>
+    <a href="#bio">About Me</a>
+    <a href="#projects">Projects</a>
     <a href="music-portfolio.html">Commissions</a>
   </div>
 
   <div class="menu-right">
-    <a href="https://www.youtube.com/@Splattercup">
+    <a href="https://www.youtube.com/@Splattercup" target="_blank">
     <img id="splattube" src="./img/splattube.png" alt="Splattube"></a>
-    <a href="https://www.twitter.com/Splattercup">
-    <img id="splattbird" src="./img/placeholder.png" alt="Splattbird"</a>
-    <a href="games.html">
+    <a href="https://www.twitter.com/Splattercup" target="_blank">
+    <img id="splattbird" src="./img/placeholder.png" alt="Splattbird"></a>
+    <a href="games.html" target="_blank">
     <img id="splattcord" src="./img/splattcord.png" alt="Splattcord"></a>
   </div>
 </div>
 
 </div>
 
-<div style="padding-left:16px">
-<br>
-<br>
-<br>
-<h1 style="font-family:pennels">
-<u>
-<b>
-Welcome to the Splattersite!
-</b>
-</u>
+<div id="title">
+<h1 id="welcometitle">
+<u><b>Welcome to the Splattersite!</b></u>
 </h1>
 </div>
+
+<!-- this little section is the green line background -->
 <p title="Hi :)" style="color:red;background-color:rgba(100,200,20,0.75);">
-Coded this entire website myself!
+
+<!-- old timey website movement -->
+<marquee direction="right" scrollamount="25">
+  Coded this entire website myself!
+</marquee>
 </p>
+
 <a href="art-portfolio.html" title="My art page!" style="font-size:30px">
 My art page!
 </a>
@@ -87,6 +94,25 @@ My music page!
 <a href="friends-list.html" title="My cool friends!" style="font-size:30px">
 My cool friends!
 </a>
+
+<br>
+
+<a href="https://www.youtube.com/@Splattercup" target="_blank" class="socialbox">
+  <img src="./img/splattube.png" alt="YouTube">
+</a>
+
+<a href="https://www.twitter.com/Splattercup" target="_blank" class="socialbox">
+  <img src="./img/placeholder.png" alt="Twitter">
+</a>
+
+<a href="games.html" class="socialbox">
+  <img src="./img/splattcord.png" alt="Discord">
+</a>
+
+<p>
+This is the main hub for all things Splattercup!
+</p>
+
 <p id="secretbutton"></p>
 <div>
 <a href="https://www.youtube.com/" title="hi">
@@ -96,8 +122,36 @@ My cool friends!
 <button>Click me to make a sound</button>
 </div>
 <img src="./img/onward.gif" width="737.55" height="163.8">
+
+<!-- Bio overview with a button to let you go deeper into my journey in progress. -->
+
+<div id="bio">
+  <h2>About Me</h2>
+  <p>
+    Hi! I'm Splattercup. Welcome to my website!
+  </p>
+  <p>
+I am a student who is currently trying to pursue a degree in college.
+  </p>
+  <p>
+With what I had given to me, I have been pursuing art casually for around 12 years, and music composition for 6 years. I also dabble in music performance and some code as well!
+  </p>
+</div>
+
+<!-- Projects overview with a button to let you go deeper into my portfolio in progress. -->
+
+<div id="projects">
+  <h2>Projects</h2>
+  <p>
+    Here are some of my works! More details When you click more.
+  </p>
+</div>
+
+
+<!-- bottom part of my menu. Not likely to be moved. -->
+
 <address>
-Written by Splattercup.<br>
+This entire website, art and music included, made by Splattercup.<br>
 Check out my socials at:<br>
 <a href="https://splattercup.carrd.co/" target="_blank">Splattercup's Carrd!</a>
 </address>
