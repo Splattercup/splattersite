@@ -18,6 +18,27 @@ p {
   font-size: 30px;
 }
 
+/*spacing from top screen to title*/
+#title {
+  padding-top: 280px;
+}
+
+/*fade-in title*/
+#welcometitle {
+  opacity: 0;
+  animation: fadein 2s ease-in forwards;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 #topmenu {
   /*default menu*/
   /*display: flex;*/
@@ -28,15 +49,13 @@ p {
   background-position: center;
   height: 250px;
   
-/*topmenu will have border for logo and info*/
-  padding-left: 10px;
-  padding-right: 20px;
+  padding-left: 0px;
+  padding-right: 30px;
   padding-top: 15px;
   box-sizing: border-box;
   
-/*start with menu hiding in top*/
   position: fixed;
-  top: -250;
+  top: -250px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -82,34 +101,7 @@ p {
   color: white;
 }
 
-/* The bottommenu bar */
-#bottommenu {
-  overflow: hidden;
-  background-color: #333;
-  width: 100%;
-}
 
-/* The links inside bottommenu bar */
-#bottommenu a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 28px 32px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-/* Background change when mouse is on */
-#bottommenu a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-#bottommenu a:active {
-  Background-color: green;
-  color: white;
-}
 
 /*Automatic Link Layout*/
 a:link {
@@ -144,7 +136,7 @@ a:active {
 
 #topmenu .menu-left a:first-child img {
   display: block;
-  width: 20em;
+  width: 15em;
   height: auto;
 }
 
@@ -222,11 +214,11 @@ a:active {
   transform: scale(0.8);
 }
 
-#splattlogo,
+#splattbird,
 #splattube,
 #splattcord {
   display: block;
-  height: 75px;
+  height: 50px;
   width: auto;
   transition: transform 0.2s;
 }
@@ -235,4 +227,75 @@ a:active {
 #splattube:hover,
 #splattcord:hover {
   transform: translateY(-5px);
+}
+
+/* boxes around logos */
+#topmenu a:has(#splattube),
+#topmenu a:has(#splattbird),
+#topmenu a:has(#splattcord) {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 8px;
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+/* hover logo effect */
+#topmenu a:has(#splattube):hover,
+#topmenu a:has(#splattbird):hover,
+#topmenu a:has(#splattcord):hover {
+  transform: translateY(-8px);
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 0 50px white;
+}
+
+/* boxes outside of topmenu */
+.socialbox {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 8px;
+  margin: 10px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.socialbox img {
+  display: block;
+  height: 50px;
+  width: auto;
+}
+
+.socialbox:hover {
+  transform: translateY(-8px);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* The bottommenu bar */
+#bottommenu {
+  overflow: hidden;
+  background-color: #333;
+  width: 100%;
+}
+
+/* The links inside bottommenu bar */
+#bottommenu a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 28px 32px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Background change when mouse is on */
+#bottommenu a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#bottommenu a:active {
+  Background-color: green;
+  color: white;
 }
