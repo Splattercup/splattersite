@@ -49,7 +49,7 @@ p {
   background-position: center;
   height: 250px;
   
-  padding-left: 0px;
+  padding-left: 10px;
   padding-right: 30px;
   padding-top: 15px;
   box-sizing: border-box;
@@ -62,6 +62,8 @@ p {
   align-items: flex-start;
 
   transition: top 0.3s;
+
+  z-index: 1000;
 }
 
 .menu-left,
@@ -79,19 +81,41 @@ p {
 #topmenu a {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: black;
   text-align: center;
   padding: 28px 32px;
   text-decoration: none;
   font-size: 15px;
   transition: 0.2s linear; 
 }
+/* boxes around the three text links */
+#topmenu .menu-left a:not(:first-child) {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 12px 20px;
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
 
-/* Background topmenu change when mouse is on */
+/* hover */
+#topmenu .menu-left a:not(:first-child):hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 0 20px white;
+  text-decoration: none;
+}
+
+/* click */
+#topmenu .menu-left a:not(:first-child):active {
+  transform: translateY(2px);
+  background-color: rgba(100, 200, 100, 0.8);
+}
+
+/* background topmenu link change when mouse is on */
 #topmenu a:hover {
   transform: translateX(0px);
   background-color: #ddd;
-  color: black;
+  color: #117841;
 }
 
 /* When clicked */
@@ -101,7 +125,57 @@ p {
   color: white;
 }
 
+#topmenu .menu-left a:first-child:hover {
+  background-color: transparent;
+}
 
+/* white lines */
+#section1 {
+  min-height: 600px;
+  background-image: url("../img/Eclipsecat.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#section2 {
+  min-height: 600px;
+  background-image: url("../img/catstacksparkle.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#section3 {
+  min-height: 600px;
+  background-image: url("../img/penicon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#backgrounddrawings {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+#backgrounddrawings img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+}
+.whiteline {
+  width: 90%;
+  height: 3px;
+  background-color: white;
+  margin: 0 auto;
+}
 
 /*Automatic Link Layout*/
 a:link {
@@ -148,6 +222,21 @@ a:active {
 /* While clicking */
 #topmenu .menu-left a:first-child:active img {
   content: url("../img/splattlogoclicked.png");
+}
+
+/* animations for logo topmenu */
+#topmenu .menu-left a:first-child img {
+  transition: transform 0.2s ease;
+}
+
+#topmenu .menu-left a:first-child:hover img {
+  content: url("../img/splattlogohover.png");
+  transform: translateY(-5px);
+}
+
+#topmenu .menu-left a:first-child:active img {
+  content: url("../img/splattlogoclicked.png");
+  transform: translateY(2px) scale(0.95);
 }
 
 /*splattube logo topmenu*/
@@ -271,14 +360,18 @@ a:active {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-/* The bottommenu bar */
+.socialbox:active{
+  transform: translateY(2px);
+}
+
+/* the bottommenu bar */
 #bottommenu {
   overflow: hidden;
   background-color: #333;
   width: 100%;
 }
 
-/* The links inside bottommenu bar */
+/* the links inside bottommenu bar */
 #bottommenu a {
   float: left;
   display: block;
