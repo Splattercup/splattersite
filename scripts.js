@@ -11,8 +11,55 @@ window.onscroll = function() {
     document.getElementById("topmenu").style.top = "-250px";
   }
 
-  //welcometitle shrink and grow
+  // title shrink and grow
   var scale = Math.max(0.2, 1 - currentscrollpos /500);
-  document.getElementById("welcometitle").style.transform =
+  document.getElementById("title").style.transform =
     "scale(" + scale + ")";
 };
+
+// page transition, fade out before navigating to another page.
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  document.querySelectorAll("a[href]").forEach(link => {
+
+    link.addEventListener("click", function(event) {
+
+      const href = this.getAttribute("href");
+
+      // ignore empty links
+      if (!href) {
+        return;
+      }
+
+      // ignore links that only scroll on this page
+      if (href.startsWith("#")) {
+        return;
+      }
+
+      // ignore links that open in a new tab
+      if (this.target === "_blank") {
+        return;
+      }
+
+      // ignore external websites
+      if (
+        href.startsWith("http://") ||
+        href.startsWith("https://")
+      ) {
+        return;
+      }
+
+      // fade the current page out
+      document.querySelector(".page-content").classList.add("page-leaving");
+
+      // navigate after the fade finishes
+      setTimeout(() => {
+        window.location.href = href;
+      }, 400);
+
+    });
+
+  });
+
+});
