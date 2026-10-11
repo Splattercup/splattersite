@@ -50,35 +50,29 @@ font-family: pencakes;
 
 <body style="text-align:center">
 
-<div id="backgrounddrawings">
-  <img src="./img/Eclipsecat.png">
-  <img src="./img/catstacksparkle.gif">
-  <img src="./img/penicon.png">
-</div>
-
 <div id="topmenu">
   <div class="menu-left">
     <a href="#">
     <img id="splatthome" src="./img/splattlogo.png" alt="Splattersite"></a>
     <a href="#bio">About Me</a>
     <a href="#projects">Projects</a>
-    <a href="music-portfolio.html">Commissions</a>
+    <a href="commissions.html">Commissions</a>
   </div>
 
   <div class="menu-right">
     <a href="https://www.youtube.com/@Splattercup" target="_blank">
     <img id="splattube" src="./img/splattube.png" alt="Splattube"></a>
     <a href="https://www.twitter.com/Splattercup" target="_blank">
-    <img id="splattbird" src="./img/placeholder.png" alt="Splattbird"></a>
+    <img id="splattwt" src="./img/splattwt.png" alt="Splattwt"></a>
     <a href="games.html" target="_blank">
     <img id="splattcord" src="./img/splattcord.png" alt="Splattcord"></a>
   </div>
 </div>
 
-</div>
+<div class="page-content">
 
 <div id="title">
-<h1 id="welcometitle">
+<h1>
 <u><b>Welcome to the Splattersite!</b></u>
 </h1>
 </div>
@@ -104,17 +98,21 @@ My cool friends!
 
 <br>
 
-<a href="https://www.youtube.com/@Splattercup" target="_blank" class="socialbox">
-  <img src="./img/splattube.png" alt="YouTube">
-</a>
+<div class="socialcontainer">
 
-<a href="https://www.twitter.com/Splattercup" target="_blank" class="socialbox">
-  <img src="./img/placeholder.png" alt="Twitter">
-</a>
+  <a href="https://www.youtube.com/@Splattercup" target="_blank" class="socialbox">
+    <img src="./img/splattube.png" alt="YouTube">
+  </a>
 
-<a href="games.html" class="socialbox">
-  <img src="./img/splattcord.png" alt="Discord">
-</a>
+  <a href="https://www.twitter.com/Splattercup" target="_blank" class="socialbox">
+    <img src="./img/splattwt.png" alt="Twitter">
+  </a>
+
+  <a href="games.html" class="socialbox">
+    <img src="./img/splattcord.png" alt="Discord">
+  </a>
+
+</div>
 
 <p>
 This is the main hub for all things Splattercup!
@@ -122,9 +120,7 @@ This is the main hub for all things Splattercup!
 
 <p id="secretbutton"></p>
 <div>
-<a href="https://www.youtube.com/" title="hi">
-<img src="./img/Eclipsecat.png">
-</a>
+
 <img src="./img/catstacksparkle.gif" width="686.5" height="645.5">
 <button>Click me to make a sound</button>
 </div>
@@ -132,22 +128,24 @@ This is the main hub for all things Splattercup!
 
 <!-- Bio overview with a button to let you go deeper into my journey in progress. -->
 
-<div id="bio">
+<div id="bio" class="classic_box">
   <h2>About Me</h2>
   <p>
     Hi! I'm Splattercup. Welcome to my website!
   </p>
   <p>
-I am a student who is currently trying to pursue a degree in college.
+    I am a student who is currently trying to pursue a degree in college.
   </p>
   <p>
-With what I had given to me, I have been pursuing art casually for around 12 years, and music composition for 6 years. I also dabble in music performance and some code as well!
+    With what I had given to me, I have been pursuing art casually for around
+    12 years, and music composition for 6 years. I also dabble in music
+    performance and some code as well!
   </p>
 </div>
 
 <!-- Projects overview with a button to let you go deeper into my portfolio in progress. -->
 
-<div id="projects">
+<div id="projects" class="classic_box">
   <h2>Projects</h2>
   <p>
     Here are some of my works! More details When you click more.
@@ -170,6 +168,8 @@ Check out my socials at:<br>
   <a href="contact.html">Contact</a>
   <a href="friends-list.html">Friends</a>
   <a href="games.html">Games</a>
+</div>
+
 </div>
 
 <script src="./js/scripts.js"></script>
