@@ -4,6 +4,31 @@ body {
   background: linear-gradient(#9db399, #ffffff);
 }
 
+/* everything except the top menu fades between pages */
+body::after {
+  content: "";
+  display: block;
+}
+
+.page-content {
+  opacity: 0;
+  animation: pageFadeIn 0.4s ease forwards;
+}
+
+.page-content.page-leaving {
+  opacity: 0;
+  animation: none;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
 html {
     scroll-behavior: smooth;
 }
@@ -13,171 +38,13 @@ h1 {
   text-align: center;
   font-size: 60px;
 }
+
 p {
   color: red;
   font-size: 30px;
 }
 
-/*spacing from top screen to title*/
-#title {
-  padding-top: 280px;
-}
-
-/*fade-in title*/
-#welcometitle {
-  opacity: 0;
-  animation: fadein 2s ease-in forwards;
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-#topmenu {
-  /*default menu*/
-  /*display: flex;*/
-  /*align-items: center;*/
-  /*background-color: #333;*/
-  background-image: url("../img/topmenu_ink.png");
-  background-size: cover;
-  background-position: center;
-  height: 250px;
-  
-  padding-left: 10px;
-  padding-right: 30px;
-  padding-top: 15px;
-  box-sizing: border-box;
-  
-  position: fixed;
-  top: -250px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-
-  transition: top 0.3s;
-
-  z-index: 1000;
-}
-
-.menu-left,
-.menu-right {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.menu-right {
-  margin-left: auto;
-}
-
-/* The links inside topmenu bar */
-#topmenu a {
-  float: left;
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 28px 32px;
-  text-decoration: none;
-  font-size: 15px;
-  transition: 0.2s linear; 
-}
-/* boxes around the three text links */
-#topmenu .menu-left a:not(:first-child) {
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 2px solid black;
-  border-radius: 15px;
-  padding: 12px 20px;
-  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
-}
-
-/* hover */
-#topmenu .menu-left a:not(:first-child):hover {
-  transform: translateY(-5px);
-  background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: inset 0 0 20px white;
-  text-decoration: none;
-}
-
-/* click */
-#topmenu .menu-left a:not(:first-child):active {
-  transform: translateY(2px);
-  background-color: rgba(100, 200, 100, 0.8);
-}
-
-/* background topmenu link change when mouse is on */
-#topmenu a:hover {
-  transform: translateX(0px);
-  background-color: #ddd;
-  color: #117841;
-}
-
-/* When clicked */
-#topmenu a:active {
-  transition: 0.06s linear;
-  Background-color: green;
-  color: white;
-}
-
-#topmenu .menu-left a:first-child:hover {
-  background-color: transparent;
-}
-
-/* white lines */
-#section1 {
-  min-height: 600px;
-  background-image: url("../img/Eclipsecat.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-#section2 {
-  min-height: 600px;
-  background-image: url("../img/catstacksparkle.gif");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-#section3 {
-  min-height: 600px;
-  background-image: url("../img/penicon.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-#backgrounddrawings {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-}
-
-#backgrounddrawings img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.25;
-}
-.whiteline {
-  width: 90%;
-  height: 3px;
-  background-color: white;
-  margin: 0 auto;
-}
-
-/*Automatic Link Layout*/
+/* automatic Link Layout */
 a:link {
   color: blue;
   background-color: transparent;
@@ -202,7 +69,112 @@ a:active {
   text-decoration: underline;
 }
 
-/*Splatt logo*/
+/*spacing from top screen to title and fade*/
+#title {
+  padding-top: 280px;
+  opacity: 0;
+  animation: fadein 2s ease-in forwards;
+  transform-origin: top center;
+  transition: transform 0.3s ease;
+}
+
+#title.shrink {
+  transform: scale(0.6);
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+#topmenu {
+  /*default menu*/
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*background-color: #333;*/
+
+  background-image: url("../img/topmenu_ink_shade.png");
+  background-size: cover;
+  background-position: center;
+  
+  height: 250px;
+  width: 100%;
+
+  padding-left: 10px;
+  padding-right: 30px;
+  padding-top: 15px;
+  box-sizing: border-box;
+  
+  position: fixed;
+  top: -250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  transition: top 0.3s;
+
+  z-index: 1000;
+}
+
+/* left and right topmenu groups */
+.menu-left,
+.menu-right {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.menu-right {
+  margin-left: auto;
+}
+
+/* The links inside topmenu bar */
+#topmenu a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 28px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  transition: 0.2s linear; 
+}
+
+/* boxes around the three text links */
+#topmenu .menu-left a:not(:first-child) {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 12px 20px;
+  transition: 
+    transform 0.2s, 
+    background-color 0.2s, 
+box-shadow 0.2s;
+}
+
+/* hover */
+#topmenu .menu-left a:not(:first-child):hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 0 20px white;
+  text-decoration: none;
+}
+
+/* click */
+#topmenu .menu-left a:not(:first-child):active {
+  transform: translateY(2px);
+  background-color: rgba(100, 200, 100, 0.8);
+}
+
+#topmenu .menu-left a:first-child:hover {
+  background-color: transparent;
+}
+
+/* splatt logo */
 
 #topmenu .menu-left a:first-child {
   padding: 0;
@@ -210,159 +182,179 @@ a:active {
 
 #topmenu .menu-left a:first-child img {
   display: block;
-  width: 15em;
+  width: 240px;
   height: auto;
-}
 
-/* Hover */
-#topmenu .menu-left a:first-child:hover img {
-  content: url("../img/splattlogohover.png");
-}
-
-/* While clicking */
-#topmenu .menu-left a:first-child:active img {
-  content: url("../img/splattlogoclicked.png");
-}
-
-/* animations for logo topmenu */
-#topmenu .menu-left a:first-child img {
+  /* animation for actions below */
   transition: transform 0.2s ease;
 }
 
+/* hover */
 #topmenu .menu-left a:first-child:hover img {
   content: url("../img/splattlogohover.png");
   transform: translateY(-5px);
 }
 
+/* while clicking */
 #topmenu .menu-left a:first-child:active img {
   content: url("../img/splattlogoclicked.png");
   transform: translateY(2px) scale(0.95);
 }
+/* logo stash */
+/* youtube */
+#topmenu a:has(#splattube):hover img { 
+content: url("../img/splattubehover.png"); 
+} 
 
-/*splattube logo topmenu*/
+#topmenu a:has(#splattube):active img { 
+content: url("../img/splattubeclicked.png"); 
+transform: scale(0.8); 
+} 
 
-#topmenu a:has(#splattube) {
-  padding: 0;
-}
+/* discord */ 
+#topmenu a:has(#splattcord):hover img { 
+content: url("../img/splattcordhover.png"); 
+} 
 
-#splattube {
-  display: block;
-  height: 100px;
-  width: auto;
-}
+#topmenu a:has(#splattcord):active img { 
+content: url("../img/splattcordclicked.png"); 
+transform: scale(0.8); 
+} 
 
-#topmenu a:has(#splattube):hover img {
-  content: url("../img/splattubehover.png");
-}
+/* twitter */ 
+#topmenu a:has(#splattwt):hover img { 
+content: url("../img/splattwthover.png"); 
+} 
 
-#topmenu a:has(#splattube):active img {
-  content: url("../img/splattubeclicked.png");
-  transform: scale(0.8);
-}
+#topmenu a:has(#splattwt):active img { content: url("../img/splattwtclick.png"); transform: scale(0.8); }
 
+/* logos topmenu */
 
-/*splattcord logo topmenu*/
+#splattube, 
+#splattwt, 
+#splattcord { 
+display: block; 
+height: 50px; 
+width: auto; 
 
-#topmenu a:has(#splattcord) {
-  padding: 0;
-}
+transition: transform 0.2s; 
+} 
 
-#splattcord {
-  display: block;
-  height: 100px;
-  width: auto;
-}
-
-#topmenu a:has(#splattcord):hover img {
-  content: url("../img/splattcordhover.png");
-}
-
-#topmenu a:has(#splattcord):active img {
-  content: url("../img/splattcordclicked.png");
-  transform: scale(0.8);
-}
-
-/*splattbird logo topmenu*/
-
-#topmenu a:has(#splattbird) {
-  padding: 0;
-}
-
-#splattbird {
-  display: block;
-  height: 100px;
-  width: auto;
-}
-
-#topmenu a:has(#splattbird):hover img {
-  content: url("../img/placeholder.png");
-}
-
-#topmenu a:has(#splattbird):active img {
-  content: url("../img/placeholder.png");
-  transform: scale(0.8);
-}
-
-#splattbird,
-#splattube,
-#splattcord {
-  display: block;
-  height: 50px;
-  width: auto;
-  transition: transform 0.2s;
-}
-
-#splattlogo:hover,
-#splattube:hover,
-#splattcord:hover {
-  transform: translateY(-5px);
+/* icon hover */ 
+#topmenu a:has(#splattube):hover, 
+#topmenu a:has(#splattwt):hover, 
+#topmenu a:has(#splattcord):hover { 
+  transform: translateY(-8px); 
+  background-color: rgba(255, 255, 255, 0.8); 
+  box-shadow: inset 0 0 50px white; 
 }
 
 /* boxes around logos */
 #topmenu a:has(#splattube),
-#topmenu a:has(#splattbird),
+#topmenu a:has(#splattwt),
 #topmenu a:has(#splattcord) {
   background-color: rgba(255, 255, 255, 0.5);
   border: 2px solid black;
   border-radius: 15px;
-  padding: 8px;
-  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
-}
-
-/* hover logo effect */
-#topmenu a:has(#splattube):hover,
-#topmenu a:has(#splattbird):hover,
-#topmenu a:has(#splattcord):hover {
-  transform: translateY(-8px);
-  background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: inset 0 0 50px white;
+  padding: 6px;
+  transition: 
+    transform 0.2s, 
+    background-color 0.2s, 
+    box-shadow 0.2s;
 }
 
 /* boxes outside of topmenu */
-.socialbox {
-  display: inline-block;
+
+/* one large box containing all three icons */ 
+.socialcontainer { 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 15px; 
+
+  background-color: rgba(255, 255, 255, 0.5); 
+  border: 2px solid black; 
+  border-radius: 15px; 
+  padding: 15px; 
+}
+
+/* individual icon boxes */
+.socialcontainer .socialbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background-color: rgba(255, 255, 255, 0.5);
   border: 2px solid black;
   border-radius: 15px;
-  padding: 8px;
-  margin: 10px;
-  transition: transform 0.2s, background-color 0.2s;
+
+  padding: 5px; 
+  margin: 0;
+
+  transition: 
+    transform 0.2s, 
+    background-color 0.2s, 
+    box-shadow 0.2s;
 }
 
-.socialbox img {
+.socialcontainer .socialbox img {
   display: block;
-  height: 50px;
+  height: 75px;
   width: auto;
 }
 
-.socialbox:hover {
+.socialcontainer .socialbox:hover {
   transform: translateY(-8px);
   background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 0 50px white;
+
+  text-decoration: none;
 }
 
-.socialbox:active{
-  transform: translateY(2px);
+/* youtube hover/click */ 
+.socialcontainer .socialbox:has(img[alt="YouTube"]):hover img { 
+content: url("../img/splattubehover.png"); 
+transition: transform 0.2s; 
+} 
+
+.socialcontainer .socialbox:has(img[alt="YouTube"]):active img { 
+content: url("../img/splattubeclicked.png"); 
+transform: scale(0.8); 
+transition: transform 0.2s;
+} 
+
+/* discord hover/click */ 
+.socialcontainer .socialbox:has(img[alt="Discord"]):hover img { 
+content: url("../img/splattcordhover.png"); 
+transition: transform 0.2s;
+} 
+
+.socialcontainer .socialbox:has(img[alt="Discord"]):active img { content: url("../img/splattcordclicked.png"); 
+transform: scale(0.8);
+transition: transform 0.2s; 
+} 
+
+/* twitter */ 
+.socialcontainer .socialbox:has(img[alt="Twitter"]):hover img { 
+content: url("../img/splattwthover.png");
+transition: transform 0.2s; 
+} 
+
+.socialcontainer .socialbox:has(img[alt="Twitter"]):active img { content: url("../img/splattwtclick.png"); transform: scale(0.8); 
+transition: transform 0.2s;
 }
+
+.classic_box
+{
+  width: 80%;
+  margin: 60px auto;
+  padding: 30px;
+  border: 3px solid black;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+}
+
 
 /* the bottommenu bar */
 #bottommenu {
@@ -382,7 +374,7 @@ a:active {
   font-size: 17px;
 }
 
-/* Background change when mouse is on */
+/* background change when mouse is on */
 #bottommenu a:hover {
   background-color: #ddd;
   color: black;
